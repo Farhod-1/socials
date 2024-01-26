@@ -1,0 +1,116 @@
+.select {
+  &__wrapper {
+    label {
+      display: block;
+      margin-bottom: 4px;
+    }
+  }
+
+  &__error {
+    color: #f23648;
+  }
+}
+
+.customselect {
+  $selectheight: 50px;
+  height: $selectheight;
+  flex-shrink: 0;
+  margin-top: 10px;
+  width: 100%;
+  position: relative;
+  z-index: 9;
+  user-select: none;
+
+  &__holder {
+    background: #ffffff;
+    border: 1px solid #dce0e4;
+    border-radius: 9px;
+    max-height: $selectheight;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s;
+  }
+
+  &__label {
+    height: $selectheight;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 20px;
+    cursor: pointer;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1;
+    text-transform: capitalize;
+    color: #888e96;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      transition: all 0.3s;
+      width: 25px;
+      height: 25px;
+      display: flex;
+      content: "";
+      background: url(@/assets/img/icon-dropdown.svg) no-repeat center center;
+    }
+  }
+
+  &__list {
+    max-height: 200px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    transition: 0.3s;
+    background: $white;
+  }
+
+  &__option {
+    font-style: normal;
+    font-weight: 500;
+    flex-shrink: 0;
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: capitalize;
+
+    background: $white;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    height: $selectheight;
+    color: #888e96;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+
+    &:hover {
+      background: #f3f3f3;
+    }
+  }
+
+  &.opened & {
+    z-index: 10;
+
+    &__holder {
+      max-height: 600px;
+    }
+
+    &__label {
+      &::after {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+  }
+}
+
+.dn {
+  display: none;
+}

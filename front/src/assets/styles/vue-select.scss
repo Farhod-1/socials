@@ -1,0 +1,51 @@
+.disable-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                   supported by Chrome, Edge, Opera and Firefox */
+}
+
+.v-select {
+  border-radius: 10px;
+}
+
+.vs__dropdown-toggle {
+  min-height: 48px;
+  border-radius: 9px;
+}
+
+.vs--single.vs--open .vs__selected,
+.vs--single.vs--loading .vs__selected {
+  top: 8px;
+}
+
+.vs__selected-options {
+  padding: 0 5px;
+}
+
+.vs__selected,
+.vs__dropdown-option {
+  font-size: 13.3px;
+}
+
+.vs__dropdown-option {
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+  max-width: 100%;
+}
+
+.select__element.error {
+  .vs__dropdown-toggle {
+    border-color: red;
+  }
+}
+
+.vs__dropdown-menu {
+  z-index: 1500 !important;
+  overflow-x: hidden;
+}
