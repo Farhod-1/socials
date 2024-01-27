@@ -6,6 +6,7 @@ import TicketsLayout from '@/views/Tickets/TicketsLayout.vue'
 import type { RouteRecordRaw } from 'vue-router'
 import { createRouter, createWebHistory } from 'vue-router'
 import Login from '../views/Auth/Login.vue'
+import PatientsLayout from "@/views/Patients/PatientsLayout.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -25,12 +26,20 @@ const routes: Array<RouteRecordRaw> = [
             path: '',
             meta: { auth: true },
             component: () => import('@/views/Tickets/TicketsHome.vue')
-          },
+          }
+        ]
+      },
+      {
+        name: 'patients',
+        path: '/patients',
+        meta: { auth: true },
+        component: PatientsLayout,
+        children: [
           {
-            name: 'tickets.detail',
-            path: '/projects/:id/tickets',
+            name: 'patients.home',
+            path: '',
             meta: { auth: true },
-            component: () => import('@/views/Tickets/TicketTasksList.vue')
+            component: () => import('@/views/Patients/PatientsHome.vue')
           }
         ]
       }

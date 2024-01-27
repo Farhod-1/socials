@@ -28,7 +28,7 @@ const { isAdmin } = useUser()
 const menu = computed<MenuItem[]>(() => {
   const menus = [
     {
-      title: t('ticket.title'),
+      title: t('my_health'),
       link: '/tickets',
       icon: IconTasks
     }
