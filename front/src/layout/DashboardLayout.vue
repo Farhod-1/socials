@@ -5,12 +5,9 @@
     <div
       class="absolute flex gap-2 items-center justify-center top-0 h-[84px] w-[400px] px-4 py-0 ltr:right-0 rtl:left-0 z-20"
     >
-      <SoftPhoneLayout v-if="!isLoading && sipDetails" :sip-user="sipDetails" class="relative" />
 
       <NavbarUserLayout v-if="isUserLoaded && user" :user="user" class="flex-grow" />
 
-      <!-- Global Search -->
-      <IconSearch class="w-7 h-7 cursor-pointer shrink-0" @click="showGlobalSearch" />
     </div>
     <router-view />
   </div>
@@ -18,14 +15,11 @@
 <script lang="ts" setup>
 import Sidebar from '@/components/Sidebar/Sidebar.vue'
 import { refreshToken } from '@/service/http/api/auth'
-import IconSearch from '@/assets/icon/IconSearch.vue'
 import { useUser } from '@/service/modules/user/user'
-import { useActiveElement, useMagicKeys, whenever } from '@vueuse/core'
-import { logicAnd } from '@vueuse/math/index'
-import useGlobalSearch from '@/layout/GlobalSearch/useGlobalSearch'
+import { useActiveElement, useMagicKeys } from '@vueuse/core'
+
 import { computed } from 'vue'
 import NavbarUserLayout from '@/components/Navbar/NavbarUserLayout.vue'
-import { getSipPhoneUserDetails } from '@/service/http/api/user'
 
 const { mutate: handleRefreshToken } = refreshToken()
 
@@ -58,13 +52,6 @@ const { Slash } = useMagicKeys({
   }
 })
 
-whenever(logicAnd(Slash, notUsingInput), () => {
-  showGlobalSearch()
-})
 
-function showGlobalSearch() {
-  useGlobalSearch().open()
-}
 
-const { data: sipDetails, isLoading } = getSipPhoneUserDetails()
 </script>

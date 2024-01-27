@@ -84,7 +84,7 @@ const onSubmit = handleSubmit(async (values: LoginForm) => {
       if (response.data.access_token) {
         setToken(response.data.access_token)
 
-        return router.push('/chats')
+        return router.push('/')
       }
     },
     onError: (error: any) => {

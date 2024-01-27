@@ -7,7 +7,6 @@
 <script lang="ts" setup>
 import { provideUserModule } from '@/service/modules/user/user'
 
-import './modules/socket/events'
 import { onBeforeMount, watch } from 'vue'
 import { ModalsContainer } from 'vue-final-modal'
 import { useI18n } from 'vue-i18n'

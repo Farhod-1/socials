@@ -1,6 +1,4 @@
 import http from '@/service/http'
-import { useCall24PBXAgentHttpHost } from '@/service/http/call24-pbx-agent-http'
-import type { SipUser } from '@/service/modules/sip/types'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 
 export interface IGetMeResponse {
@@ -109,23 +107,7 @@ export function updateUserStatusQuery() {
   })
 }
 
-export function getSipPhoneUserDetails() {
-  const agentHost = useCall24PBXAgentHttpHost()
 
-  return useQuery({
-    retry: 0,
-    queryKey: ['sipPhoneUserDetail'],
-    keepPreviousData: true,
-    refetchOnWindowFocus: false,
-    queryFn: async () => {
-      const data = await http.get<SipUser>('/sip-users/detail').then((res) => res.data)
-
-      agentHost.value = data.agentHost
-
-      return data
-    }
-  })
-}
 
 export function createCallTicketQuery() {
   const q = useQueryClient()

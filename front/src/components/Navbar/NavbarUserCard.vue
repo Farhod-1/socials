@@ -19,7 +19,6 @@
       <div class="line-clamp-1 dark:text-dark-200">{{ name }}</div>
       <div class="text-xs text-gray-700 dark:text-dark-200 line-clamp-1">{{ position }}</div>
 
-      <EmployeeStatusText :status="status" />
     </div>
 
     <div>
@@ -30,7 +29,6 @@
 
 <script lang="ts" setup>
 import IconThreeDots from '@/assets/icon/IconThreeDots.vue'
-import EmployeeStatusText from '@/components/Employee/EmployeeStatusText.vue'
 
 defineProps({
   img: {

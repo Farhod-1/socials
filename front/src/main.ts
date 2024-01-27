@@ -6,7 +6,6 @@ import '@/assets/styles/app.css'
 import App from './App.vue'
 import router from './router'
 import ToastPlugin from './components/Toast/ToastPlugin'
-import socket from '@/modules/socket'
 import contextmenu from '@/modules/contextmenu'
 import globalComponents from '@/components/GlobalComponents'
 import BaseInput from '@/components/Input/Input.vue'
@@ -40,7 +39,6 @@ app
   .use(router)
   .use(ToastPlugin)
   .use(i18n)
-  .use(socket)
   .use(contextmenu)
   .use(VueQueryPlugin)
   .use(createVfm())

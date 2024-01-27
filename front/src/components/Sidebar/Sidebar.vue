@@ -19,6 +19,7 @@ import { useUser } from '@/service/modules/user/user'
 import type { MenuItem } from '@/types'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import IconEmployees from "@/assets/icon/IconEmployees.vue";
 
 const { t } = useI18n()
 
@@ -34,6 +35,11 @@ const menu = computed<MenuItem[]>(() => {
   ]
 
   if (isAdmin) {
+    menus.push({
+      title: t('Patients'),
+      link: '/patients',
+      icon: IconEmployees
+    })
   }
 
   return menus
